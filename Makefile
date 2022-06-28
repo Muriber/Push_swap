@@ -6,7 +6,7 @@
 #    By: bjimenez <bjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 09:16:08 by bjimenez          #+#    #+#              #
-#    Updated: 2022/06/25 19:53:39 by bjimenez         ###   ########.fr        #
+#    Updated: 2022/06/27 08:46:57 by bjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ $(NAME):	$(OBJS)
 			make -C Libft/ all
 			cp Libft/libft.a $(NAME)  
 			ar rcs ${NAME} ${OBJS}
+			$(CC) $(CFLAGS) -lpushswap -L. -o push_swap
 
 clean:		
 			${RM} ${OBJS}

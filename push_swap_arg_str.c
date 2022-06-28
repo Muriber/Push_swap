@@ -6,7 +6,7 @@
 /*   By: bjimenez <bjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 09:30:34 by bjimenez          #+#    #+#             */
-/*   Updated: 2022/06/24 12:24:03 by bjimenez         ###   ########.fr       */
+/*   Updated: 2022/06/27 10:02:47 by bjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	*ft_arg2arr_int(char **data, int n_items)
 
 	x = 0;
 	list = (int *)malloc(sizeof(int) * (n_items));
+	if (!list)
+		return (NULL);
 	while (x < (n_items - 1))
 	{
 		list[x] = ft_atoi(data[x]);

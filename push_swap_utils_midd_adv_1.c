@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils_11to500_1.c                        :+:      :+:    :+:   */
+/*   push_swap_utils_midd_adv_1.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjimenez <bjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:30:12 by bjimenez          #+#    #+#             */
-/*   Updated: 2022/06/22 14:44:09 by bjimenez         ###   ########.fr       */
+/*   Updated: 2022/06/27 09:21:54 by bjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,26 @@
 int	*ft_order_array(int *list, int n_num)
 {
 	int	*auxlist;
-	int	i;
-	int	j;
+	int	i[2];
 	int	aux;
 
-	i = -1;
+	i[0] = -1;
 	auxlist = (int *)malloc(sizeof(int) * (n_num - 1));
-	while (++i < n_num - 1)
-		auxlist[i] = list[i];
-	i = -1;
-	while (++i < n_num -1)
+	if (!auxlist)
+		return (NULL);
+	while (++i[0] < n_num - 1)
+		auxlist[i[0]] = list[i[0]];
+	i[0] = -1;
+	while (++i[0] < n_num -1)
 	{
-		j = i;
-		while (++j < n_num - 1)
+		i[1] = i[0];
+		while (++i[1] < n_num - 1)
 		{
-			if (auxlist[i] > auxlist[j])
+			if (auxlist[i[0]] > auxlist[i[1]])
 			{
-				aux = auxlist[i];
-				auxlist[i] = auxlist[j];
-				auxlist[j] = aux;
+				aux = auxlist[i[0]];
+				auxlist[i[0]] = auxlist[i[1]];
+				auxlist[i[1]] = aux;
 			}
 		}
 	}

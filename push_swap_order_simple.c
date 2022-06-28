@@ -6,7 +6,7 @@
 /*   By: bjimenez <bjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:30:20 by bjimenez          #+#    #+#             */
-/*   Updated: 2022/06/25 19:53:54 by bjimenez         ###   ########.fr       */
+/*   Updated: 2022/06/27 09:31:44 by bjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,15 @@ int	*ft_push_minor(int *list, int n_arg)
 	return (stack_a);
 }
 
-void	push_swap_order6_10( int *list, int n_arg)
+void	*push_swap_order6_10( int *list, int n_arg)
 {
 	int	n_arg_aux;
 	int	*stack_b;
 	int	flag;
 
 	stack_b = (int *)malloc(sizeof(int) * (n_arg - 1));
+	if (!stack_b)
+		return (NULL);
 	n_arg_aux = n_arg;
 	flag = 1;
 	while (n_arg_aux > 1 && ft_order(list, n_arg_aux) != 0)
@@ -94,4 +96,5 @@ void	push_swap_order6_10( int *list, int n_arg)
 		n_arg_aux++;
 	}
 	free (stack_b);
+	return (0);
 }
